@@ -1,3 +1,4 @@
+//This code is to match two strings such that the cost of matching is minimum. I have used DP to optimize my recursive approach for same
 #include <iostream>
 #include <fstream>
 #include <algorithm>
@@ -13,7 +14,9 @@ class SequenceAlignment{
             in >> costMismatch >> costGap;
             in >> p >> q;
         }
+        
         //Recursive Code O(3^n)
+        //Space- O(logn) height of recursive tree
         int optimalValue(int i , int j){
             if(i < 0 && j < 0){
                 return 0;
@@ -33,7 +36,7 @@ class SequenceAlignment{
         }
 
         //DP approach O(n^2)
-
+        //space - O(n^2)
         int optimalValue(){
             vector<vector<int>> dp(p.size()+1 , vector<int>(q.size()+1 , 0));
             //initialization
@@ -60,6 +63,7 @@ class SequenceAlignment{
             printSequence(dp);
             return dp[p.size()][q.size()];
         }
+        // O(max(n,m)) n is size of first string and m is size of second string
         void printSequence(vector<vector<int>> & dp){
             string newp = "", newq = "";
             int i = p.size() , j = q.size();

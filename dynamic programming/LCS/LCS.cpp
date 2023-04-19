@@ -14,6 +14,7 @@ class LCS{
             in >> s1 >> s2;
         }
         //Recursive code for LCS O(2^n)
+        //space - O(logn)
         int optimalValue(int i , int j){
             if(i < 0 || j < 0){
                 return 0;
@@ -26,6 +27,7 @@ class LCS{
             }
         }
         //DP Optimization
+        //  time - O(n^2) and space - O(n^2)
         int optimalValue(){
             vector<vector<int>> dp(s1.size()+1 , vector<int>(s2.size()+1 , 0));
             for(int i = 1 ; i <= s1.size() ; i++){
@@ -49,6 +51,9 @@ class LCS{
             return dp[s1.size()][s2.size()];
         }
         //backtracking the dp table. This is gonna print any one LCS, for printing all LCS use recursion.
+        // space
+        // time - O(max(n,m));
+        //space - O(1)
         void printOptimal(vector<vector<int>> & dp){
             int i = s1.size() , j = s2.size();
             string ans = "";

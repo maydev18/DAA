@@ -1,3 +1,4 @@
+//This code is to tell given n matrices, what will be the order in which they be multiplied such that the operations are minimum
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -27,6 +28,7 @@ class MCM{
             return ans;
         }
         //DP code - O(n^3)
+        //space - O(n^2)
         int optimalValue(){
             vector<vector<int>> dp(n , vector<int>(n , 0));
             vector<vector<int>> s(n , vector<int>(n , 0));
@@ -62,6 +64,7 @@ class MCM{
             cout << "The optimal value is: ";
             return dp[1][n-1];
         }
+        //time - O(n) in worst case
         void printOptimal(vector<vector<int>> & s , int i , int j){
             if(i == j){
                 cout << "A"+to_string(i);
